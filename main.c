@@ -77,11 +77,12 @@ void main(void) {
     {
 
     	V_fibre = ReadFibreSensor();
-        TXString("\r\nFibre=",8);
+//        TXString("\r\nFibre=",8);
+        TXString("\r\n",2);
        TXData(V_fibre);
 
         P1OUT ^= 0x01;
-        delay(sec1);
+//        delay(sec1);
     }
 }
 
@@ -174,7 +175,7 @@ unsigned int ReadADC_1_5(unsigned int INCH)	//Vref = 2.5V read ADC from INCH cha
 	unsigned int ADC_Read;
     // Measure PD Voltage
     ADC10CTL1 = INCH;                    // read input channel
-    ADC10CTL0 = SREF_1 + ADC10SHT_3 + REFON + ADC10ON + ADC10IE + REF2_5V;
+    ADC10CTL0 = SREF_1 + ADC10SHT_3 + REFON + ADC10ON + ADC10IE;
     __delay_cycles(350);                    // delay to allow reference to settle
     ADC10CTL0 |= ENC + ADC10SC;             // Sampling and conversion start
     __bis_SR_register(LPM0_bits + GIE);     // LPM0 with interrupts enabled
@@ -214,12 +215,13 @@ unsigned int ReadFibreSensor(void)	// pulse LED and read photodiode current
 	P4OUT &= ~BIT3;		// IO LO LED ON
 	delay(150);
 	ADC = ReadADC_1_5(INCH_13);	//Vref = 1.5V read ADC from INCH channel A13
+//	ADC = ReadADC_2_5(INCH_13);	//Vref = 2.5V read ADC from INCH channel A13
 	P4OUT |= BIT3;		// IO HI LED OFF
 	P4OUT &= ~BIT5;	// instead of Vcc
 	Stop_OA1();
 
 	voltage_long = (unsigned long)ADC;
-	voltage_long = voltage_long*1500;
+	voltage_long = voltage_long*1000;
 	voltage = voltage_long>>10;
 
 	return voltage;

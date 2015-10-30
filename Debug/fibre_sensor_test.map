@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v4.3.5                      
 ******************************************************************************
->> Linked Tue Oct 27 23:52:12 2015
+>> Linked Wed Oct 28 15:18:05 2015
 
 OUTPUT FILE NAME:   <fibre_sensor_test.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 000082d0
+ENTRY POINT SYMBOL: "_c_int00"  address: 000082c8
 
 
 MEMORY CONFIGURATION
@@ -19,7 +19,7 @@ MEMORY CONFIGURATION
   INFOC                 00001040   00000040  00000000  00000040  RWIX
   INFOB                 00001080   00000040  00000000  00000040  RWIX
   INFOA                 000010c0   00000040  00000000  00000040  RWIX
-  FLASH                 00008000   00007fde  000003a1  00007c3d  RWIX
+  FLASH                 00008000   00007fde  00000394  00007c4a  RWIX
   INT00                 0000ffe0   00000002  00000000  00000002  RWIX
   INT01                 0000ffe2   00000002  00000000  00000002  RWIX
   INT02                 0000ffe4   00000002  00000002  00000000  RWIX
@@ -56,40 +56,41 @@ section   page    origin      length       input sections
                   000005b0    00000002     rts430_eabi.lib : boot.obj (.stack)
                   000005b2    0000004e     --HOLE--
 
-.text      0    00008000    00000388     
+.text      0    00008000    00000380     
                   00008000    00000088     main.obj (.text:TXData)
-                  00008088    00000066     main.obj (.text:main)
-                  000080ee    0000005e     rts430_eabi.lib : autoinit.obj (.text:_auto_init)
-                  0000814c    0000005c                     : lsr32.obj (.text:l_lsr_const)
-                  000081a8    00000058     main.obj (.text:ReadFibreSensor)
-                  00008200    00000032     main.obj (.text:ReadADC_1_5)
-                  00008232    00000030     main.obj (.text:USCI_A_Init)
-                  00008262    0000002c     main.obj (.text:delay)
-                  0000828e    00000026     rts430_eabi.lib : mult32.obj (.text)
-                  000082b4    0000001c     main.obj (.text:TXString)
-                  000082d0    0000001a     rts430_eabi.lib : boot.obj (.text:_c_int00_noexit)
-                  000082ea    00000016                     : div16u.obj (.text)
-                  00008300    00000014     main.obj (.text:OA1_Config)
-                  00008314    00000014     rts430_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
-                  00008328    00000012     main.obj (.text:Set_TimerB)
-                  0000833a    00000012     rts430_eabi.lib : memcpy.obj (.text:memcpy)
-                  0000834c    00000010                     : epilog.obj (.text)
-                  0000835c    00000008     main.obj (.text:ADC10_ISR)
-                  00008364    00000008     main.obj (.text:Stop_OA1)
-                  0000836c    00000008     main.obj (.text:TimerB_ISR)
-                  00008374    00000006     main.obj (.text:Start_OA1_Slow)
-                  0000837a    00000006     rts430_eabi.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
-                  00008380    00000004                     : pre_init.obj (.text:_system_pre_init)
-                  00008384    00000004                     : exit.obj (.text:abort)
+                  00008088    0000005e     rts430_eabi.lib : autoinit.obj (.text:_auto_init)
+                  000080e6    0000005e     main.obj (.text:main)
+                  00008144    0000005c     rts430_eabi.lib : lsr32.obj (.text:l_lsr_const)
+                  000081a0    00000058     main.obj (.text:ReadFibreSensor)
+                  000081f8    00000032     main.obj (.text:ReadADC_1_5)
+                  0000822a    00000030     main.obj (.text:USCI_A_Init)
+                  0000825a    0000002c     main.obj (.text:delay)
+                  00008286    00000026     rts430_eabi.lib : mult32.obj (.text)
+                  000082ac    0000001c     main.obj (.text:TXString)
+                  000082c8    0000001a     rts430_eabi.lib : boot.obj (.text:_c_int00_noexit)
+                  000082e2    00000016                     : div16u.obj (.text)
+                  000082f8    00000014     main.obj (.text:OA1_Config)
+                  0000830c    00000014     rts430_eabi.lib : copy_zero_init.obj (.text:decompress:ZI:__TI_zero_init)
+                  00008320    00000012     main.obj (.text:Set_TimerB)
+                  00008332    00000012     rts430_eabi.lib : memcpy.obj (.text:memcpy)
+                  00008344    00000010                     : epilog.obj (.text)
+                  00008354    00000008     main.obj (.text:ADC10_ISR)
+                  0000835c    00000008     main.obj (.text:Stop_OA1)
+                  00008364    00000008     main.obj (.text:TimerB_ISR)
+                  0000836c    00000006     main.obj (.text:Start_OA1_Slow)
+                  00008372    00000006     rts430_eabi.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+                  00008378    00000004                     : pre_init.obj (.text:_system_pre_init)
+                  0000837c    00000004                     : exit.obj (.text:abort)
 
-.const     0    00008388    0000000f     
-                  00008388    0000000a     main.obj (.const:.string)
-                  00008392    00000005     main.obj (.const:.string:$P$T0$1)
+.const     0    00008380    0000000a     
+                  00008380    00000005     main.obj (.const:.string:$P$T0$1)
+                  00008385    00000001     --HOLE-- [fill = 0]
+                  00008386    00000004     main.obj (.const:.string)
 
-.cinit     0    00008398    0000000a     
-                  00008398    00000004     (.cinit..bss.load) [load image, compression = zero_init]
-                  0000839c    00000002     (__TI_handler_table)
-                  0000839e    00000004     (__TI_cinit_table)
+.cinit     0    0000838a    0000000a     
+                  0000838a    00000004     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000838e    00000002     (__TI_handler_table)
+                  00008390    00000004     (__TI_cinit_table)
 
 PORT1      0    0000ffe4    00000002     
                   0000ffe4    00000002     rts430_eabi.lib : int02.obj (.int02)
@@ -132,13 +133,13 @@ NMI        0    0000fffc    00000002
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 0000839e records: 1, size/record: 4, table size: 4
-	.bss: load addr=00008398, load size=00000004 bytes, run addr=00000200, run size=00000002 bytes, compression=zero_init
+__TI_cinit_table @ 00008390 records: 1, size/record: 4, table size: 4
+	.bss: load addr=0000838a, load size=00000004 bytes, run addr=00000200, run size=00000002 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 0000839c records: 1, size/record: 2, table size: 2
+__TI_handler_table @ 0000838e records: 1, size/record: 2, table size: 2
 	index: 0, handler: __TI_zero_init
 
 
@@ -154,11 +155,11 @@ address    name
 00000049   ADC10DTC1
 000001b4   ADC10MEM
 000001bc   ADC10SA
-0000835c   ADC10_ISR
+00008354   ADC10_ISR
 00000057   BCSCTL1
 00000058   BCSCTL2
 00000053   BCSCTL3
-00008384   C$$EXIT
+0000837c   C$$EXIT
 000010fb   CALBC1_12MHZ
 000010f9   CALBC1_16MHZ
 000010ff   CALBC1_1MHZ
@@ -179,7 +180,7 @@ address    name
 000000c1   OA0CTL1
 000000c2   OA1CTL0
 000000c3   OA1CTL1
-00008300   OA1_Config
+000082f8   OA1_Config
 00000022   P1DIR
 00000025   P1IE
 00000024   P1IES
@@ -206,11 +207,11 @@ address    name
 0000001d   P4OUT
 00000011   P4REN
 0000001f   P4SEL
-00008200   ReadADC_1_5
-000081a8   ReadFibreSensor
-00008328   Set_TimerB
-00008374   Start_OA1_Slow
-00008364   Stop_OA1
+000081f8   ReadADC_1_5
+000081a0   ReadFibreSensor
+00008320   Set_TimerB
+0000836c   Start_OA1_Slow
+0000835c   Stop_OA1
 00000172   TACCR0
 00000174   TACCR1
 00000176   TACCR2
@@ -230,8 +231,8 @@ address    name
 0000011e   TBIV
 00000190   TBR
 00008000   TXData
-000082b4   TXString
-0000836c   TimerB_ISR
+000082ac   TXString
+00008364   TimerB_ISR
 0000005d   UCA0ABCTL
 00000062   UCA0BR0
 00000063   UCA0BR1
@@ -253,18 +254,18 @@ address    name
 0000006e   UCB0RXBUF
 0000006d   UCB0STAT
 0000006f   UCB0TXBUF
-00008232   USCI_A_Init
+0000822a   USCI_A_Init
 00000200   V_fibre
 00000120   WDTCTL
 00000600   __STACK_END
 00000050   __STACK_SIZE
-0000839e   __TI_CINIT_Base
-000083a2   __TI_CINIT_Limit
-0000839c   __TI_Handler_Table_Base
-0000839e   __TI_Handler_Table_Limit
+00008390   __TI_CINIT_Base
+00008394   __TI_CINIT_Limit
+0000838e   __TI_Handler_Table_Base
+00008390   __TI_Handler_Table_Limit
 UNDEFED    __TI_INITARRAY_Base
 UNDEFED    __TI_INITARRAY_Limit
-0000837a   __TI_ISR_TRAP
+00008372   __TI_ISR_TRAP
 00000001   __TI_args_main
 00000001   __TI_exit
 0000ffe4   __TI_int02
@@ -278,45 +279,45 @@ UNDEFED    __TI_INITARRAY_Limit
 0000fff8   __TI_int12
 0000fffa   __TI_int13
 0000fffc   __TI_int14
-00008314   __TI_zero_init
+0000830c   __TI_zero_init
 ffffffff   __binit__
 ffffffff   __c_args__
-000082ea   __mspabi_divu
-00008358   __mspabi_func_epilog_1
-00008356   __mspabi_func_epilog_2
-00008354   __mspabi_func_epilog_3
-00008352   __mspabi_func_epilog_4
-00008350   __mspabi_func_epilog_5
-0000834e   __mspabi_func_epilog_6
-0000834c   __mspabi_func_epilog_7
-0000828e   __mspabi_mpyl
-000082ea   __mspabi_remu
-000081a0   __mspabi_srll_1
-0000816a   __mspabi_srll_10
-00008164   __mspabi_srll_11
-0000815e   __mspabi_srll_12
-00008158   __mspabi_srll_13
-00008152   __mspabi_srll_14
-0000814c   __mspabi_srll_15
-0000819a   __mspabi_srll_2
-00008194   __mspabi_srll_3
-0000818e   __mspabi_srll_4
-00008188   __mspabi_srll_5
-00008182   __mspabi_srll_6
-0000817c   __mspabi_srll_7
-00008176   __mspabi_srll_8
-00008170   __mspabi_srll_9
-000080ee   _auto_init
-000082d0   _c_int00
-000082d0   _c_int00_noexit
+000082e2   __mspabi_divu
+00008350   __mspabi_func_epilog_1
+0000834e   __mspabi_func_epilog_2
+0000834c   __mspabi_func_epilog_3
+0000834a   __mspabi_func_epilog_4
+00008348   __mspabi_func_epilog_5
+00008346   __mspabi_func_epilog_6
+00008344   __mspabi_func_epilog_7
+00008286   __mspabi_mpyl
+000082e2   __mspabi_remu
+00008198   __mspabi_srll_1
+00008162   __mspabi_srll_10
+0000815c   __mspabi_srll_11
+00008156   __mspabi_srll_12
+00008150   __mspabi_srll_13
+0000814a   __mspabi_srll_14
+00008144   __mspabi_srll_15
+00008192   __mspabi_srll_2
+0000818c   __mspabi_srll_3
+00008186   __mspabi_srll_4
+00008180   __mspabi_srll_5
+0000817a   __mspabi_srll_6
+00008174   __mspabi_srll_7
+0000816e   __mspabi_srll_8
+00008168   __mspabi_srll_9
+00008088   _auto_init
+000082c8   _c_int00
+000082c8   _c_int00_noexit
 0000fffe   _reset_vector
 000005b0   _stack
-00008380   _system_pre_init
-00008384   abort
+00008378   _system_pre_init
+0000837c   abort
 ffffffff   binit
-00008262   delay
-00008088   main
-0000833a   memcpy
+0000825a   delay
+000080e6   main
+00008332   memcpy
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -427,56 +428,56 @@ address    name
 000010fe   CALDCO_1MHZ
 000010ff   CALBC1_1MHZ
 00008000   TXData
-00008088   main
-000080ee   _auto_init
-0000814c   __mspabi_srll_15
-00008152   __mspabi_srll_14
-00008158   __mspabi_srll_13
-0000815e   __mspabi_srll_12
-00008164   __mspabi_srll_11
-0000816a   __mspabi_srll_10
-00008170   __mspabi_srll_9
-00008176   __mspabi_srll_8
-0000817c   __mspabi_srll_7
-00008182   __mspabi_srll_6
-00008188   __mspabi_srll_5
-0000818e   __mspabi_srll_4
-00008194   __mspabi_srll_3
-0000819a   __mspabi_srll_2
-000081a0   __mspabi_srll_1
-000081a8   ReadFibreSensor
-00008200   ReadADC_1_5
-00008232   USCI_A_Init
-00008262   delay
-0000828e   __mspabi_mpyl
-000082b4   TXString
-000082d0   _c_int00
-000082d0   _c_int00_noexit
-000082ea   __mspabi_divu
-000082ea   __mspabi_remu
-00008300   OA1_Config
-00008314   __TI_zero_init
-00008328   Set_TimerB
-0000833a   memcpy
-0000834c   __mspabi_func_epilog_7
-0000834e   __mspabi_func_epilog_6
-00008350   __mspabi_func_epilog_5
-00008352   __mspabi_func_epilog_4
-00008354   __mspabi_func_epilog_3
-00008356   __mspabi_func_epilog_2
-00008358   __mspabi_func_epilog_1
-0000835c   ADC10_ISR
-00008364   Stop_OA1
-0000836c   TimerB_ISR
-00008374   Start_OA1_Slow
-0000837a   __TI_ISR_TRAP
-00008380   _system_pre_init
-00008384   C$$EXIT
-00008384   abort
-0000839c   __TI_Handler_Table_Base
-0000839e   __TI_CINIT_Base
-0000839e   __TI_Handler_Table_Limit
-000083a2   __TI_CINIT_Limit
+00008088   _auto_init
+000080e6   main
+00008144   __mspabi_srll_15
+0000814a   __mspabi_srll_14
+00008150   __mspabi_srll_13
+00008156   __mspabi_srll_12
+0000815c   __mspabi_srll_11
+00008162   __mspabi_srll_10
+00008168   __mspabi_srll_9
+0000816e   __mspabi_srll_8
+00008174   __mspabi_srll_7
+0000817a   __mspabi_srll_6
+00008180   __mspabi_srll_5
+00008186   __mspabi_srll_4
+0000818c   __mspabi_srll_3
+00008192   __mspabi_srll_2
+00008198   __mspabi_srll_1
+000081a0   ReadFibreSensor
+000081f8   ReadADC_1_5
+0000822a   USCI_A_Init
+0000825a   delay
+00008286   __mspabi_mpyl
+000082ac   TXString
+000082c8   _c_int00
+000082c8   _c_int00_noexit
+000082e2   __mspabi_divu
+000082e2   __mspabi_remu
+000082f8   OA1_Config
+0000830c   __TI_zero_init
+00008320   Set_TimerB
+00008332   memcpy
+00008344   __mspabi_func_epilog_7
+00008346   __mspabi_func_epilog_6
+00008348   __mspabi_func_epilog_5
+0000834a   __mspabi_func_epilog_4
+0000834c   __mspabi_func_epilog_3
+0000834e   __mspabi_func_epilog_2
+00008350   __mspabi_func_epilog_1
+00008354   ADC10_ISR
+0000835c   Stop_OA1
+00008364   TimerB_ISR
+0000836c   Start_OA1_Slow
+00008372   __TI_ISR_TRAP
+00008378   _system_pre_init
+0000837c   C$$EXIT
+0000837c   abort
+0000838e   __TI_Handler_Table_Base
+00008390   __TI_CINIT_Base
+00008390   __TI_Handler_Table_Limit
+00008394   __TI_CINIT_Limit
 0000ffe4   __TI_int02
 0000ffe6   __TI_int03
 0000ffea   __TI_int05
